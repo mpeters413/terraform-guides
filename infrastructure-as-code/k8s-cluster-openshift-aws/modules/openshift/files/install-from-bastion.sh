@@ -15,10 +15,10 @@ rm openshift-ansible-3.11.72-1.zip
 mv openshift-ansible-openshift-ansible-3.11.72-1 openshift-ansible
 
 # Set up bastion to SSH to other servers
-echo "${private_key}" > /home/ec2-user/.ssh/private-key.pem
-chmod 400 /home/ec2-user/.ssh/private-key.pem
+echo "${private_key}" > /home/ec2-user/.ssh/mattpeters.pem
+chmod 400 /home/ec2-user/.ssh/mattpeters.pem
 eval $(ssh-agent)
-ssh-add /home/ec2-user/.ssh/private-key.pem
+ssh-add /home/ec2-user/.ssh/mattpeters.pem
 
 # Create inventory.cfg file
 cat > /home/ec2-user/inventory.cfg << EOF
