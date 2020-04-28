@@ -1,9 +1,5 @@
 terraform {
   required_version = ">= 0.11.7"
-  
-  required_providers {
-    kubernetes = "= 1.3.0"
-  }
 }
 
 data "terraform_remote_state" "k8s_cluster" {
@@ -18,6 +14,7 @@ provider "kubernetes" {
   client_certificate = "${base64decode(data.terraform_remote_state.k8s_cluster.k8s_master_auth_client_certificate)}"
   client_key = "${base64decode(data.terraform_remote_state.k8s_cluster.k8s_master_auth_client_key)}"
   cluster_ca_certificate = "${base64decode(data.terraform_remote_state.k8s_cluster.k8s_master_auth_cluster_ca_certificate)}"
+  version = "= 1.3.0"
 }
 
 resource "null_resource" "service_account" {
