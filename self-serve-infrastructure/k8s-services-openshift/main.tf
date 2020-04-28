@@ -1,5 +1,9 @@
 terraform {
   required_version = ">= 0.11.7"
+  
+  required_providers {
+    kubernetes = "= 1.3.0"
+  }
 }
 
 data "terraform_remote_state" "k8s_cluster" {
